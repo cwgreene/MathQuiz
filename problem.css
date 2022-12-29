@@ -1,0 +1,71 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.problem-horizontal {
+  font-size: 40pt;
+}
+
+.start-button {
+  font-size: 40pt;
+}
+
+.chart {
+  width: 200px;
+}
+
+.problem {
+  display:inline-block;
+}
+
+.problem-input {
+  border-style: none;
+  text-align: right;
+  max-width: 100%;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 10px);
+  border-bottom: 1px;
+  border-bottom-style: solid;
+  max-width: 100%;
+}
+
+.numpad {
+  display:inline-block;
+}
+
+.numpad-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  border: 1px;
+  border-style: solid;
+  max-width: 100%;
+}
+
+.numpad-grid-button {
+  font-size: 35px;
+  height: 100px;
+}
+
+.numpad-grid-button-clicked {
+  height: 100px;
+  background-color: black;
+}
+
+.numpad-button-enter {
+  width: 300px;
+  height: 100px;
+}
+.numpad-button-enter-clicked {
+  width: 300px;
+  height: 100px;
+  background-color: black;
+}
+
+.solution-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 10px);
+}
