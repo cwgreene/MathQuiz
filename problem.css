@@ -7,6 +7,10 @@ html, body {
   font-size: 40pt;
 }
 
+.start-button {
+  font-size: 40pt;
+}
+
 .chart {
   width: 200px;
 }

@@ -16,6 +16,7 @@ class StartPage {
     let root = document.createElement("div");
     let button = document.createElement("button");
     root.appendChild(button);
+    button.className = "start-button";
     button.textContent = "Start!";
     //let problemSelector = new ProblemSelector();
     button.addEventListener("click", () => {
