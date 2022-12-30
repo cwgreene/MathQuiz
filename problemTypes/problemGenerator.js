@@ -7,4 +7,9 @@ class ProblemGenerator {
   name() {
     return this.constructor.name;
   }
+
+  generateProblem() {
+    return {operand1: 1, operator: "+", operand2: 2,
+           solution: 3}
+  }
 }

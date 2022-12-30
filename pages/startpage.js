@@ -2,6 +2,7 @@ class StartPage {
   constructor(params) {
     this.startEvent = params.startEvent;
     this.update = params.update;
+    this.problemSelector = params.selector;
   }
 
   enter() {
@@ -18,11 +19,11 @@ class StartPage {
     root.appendChild(button);
     button.className = "start-button";
     button.textContent = "Start!";
-    //let problemSelector = new ProblemSelector();
     button.addEventListener("click", () => {
       console.log("Clicked!");
       return this.startEvent();
     });
+    root.appendChild(this.problemSelector.render());
     return root;
   }
 }

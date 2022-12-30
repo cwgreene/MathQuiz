@@ -3,11 +3,19 @@ html, body {
   width: 100%;
 }
 
+.problem-selector {
+  font-size: 40pt;
+}
+
 .problem-horizontal {
   font-size: 40pt;
 }
 
 .start-button {
+  font-size: 40pt;
+}
+
+.restart-button {
   font-size: 40pt;
 }
 

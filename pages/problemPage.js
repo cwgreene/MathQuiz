@@ -4,6 +4,7 @@ class ProblemPage {
     this.currentProblem = null;
     this.completeEvent = params.completeEvent;
     this.scorer = params.scorer;
+    this.problemSelector = params.selector;
 
     this.update = params.update;
 
@@ -11,11 +12,11 @@ class ProblemPage {
   }
 
   enter() {
+    this.generator = this.problemSelector.getGenerator();
     this.beginNewProblem();
     this.inputHandlerCb = (e) => this.inputHandler(e);
     this.timer = new Timer(45, { width: 600, height: 10 }, this.completeEvent);
     document.addEventListener("keydown", this.inputHandlerCb);
-
     this.scorer.start();
 
     this.timer.start();
@@ -32,7 +33,7 @@ class ProblemPage {
     }
     if (event.key === "Enter") {
       if (this.currentProblem.checkSolution()) {
-        this.scorer.recordCorrect(this.currentProblem, this.timeInfo);
+        this.scorer.recordCorrect(this.currentProblem, this.timeInfo, this.generator.name());
         this.beginNewProblem();
         this.update(this);
       } else {
@@ -59,14 +60,8 @@ class ProblemPage {
   }
 
   beginNewProblem() {
-    this.currentProblem = this.generateProblem();
+    this.currentProblem = this.generator.generateProblem();
     this.timeInfo = new Date();
   }
 
-  generateProblem() {
-    let operand1 = 10 * Math.floor(Math.random() * 9 + 1);
-    let operand2 = Math.floor(Math.random() * 10) + 10;
-    let solution = null;
-    return new Problem({ operand1, operand2, solution });
-  }
 }

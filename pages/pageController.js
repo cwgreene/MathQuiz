@@ -3,17 +3,24 @@ class PageController {
     this.targetId = targetId;
 
     this.scorer = new QuizScorer();
+    this.problemSelector = new ProblemSelector();
 
-    let startPage = new StartPage({ update: (p) => this.renderPage(p.render()) });
+    let startPage = new StartPage({
+      update: (p) => this.renderPage(p.render()),
+      selector: this.problemSelector,
+    });
     let problemPage = new ProblemPage({
       update: (p) => this.renderPage(p.render()),
-      scorer: this.scorer
+      scorer: this.scorer,
+      selector: this.problemSelector
     });
     let restartPage = new RestartPage({
       update: (p) => this.renderPage(p.render()),
       scorer: this.scorer,
+      selector: this.problemSelector,
     });
 
+    // Wire up pages
     startPage.startEvent = () => this.transition(problemPage);
     problemPage.completeEvent = () => this.transition(restartPage);
     restartPage.restartEvent = () => this.transition(problemPage);

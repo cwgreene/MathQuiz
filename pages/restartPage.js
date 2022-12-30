@@ -2,6 +2,7 @@ class RestartPage {
   constructor(params) {
     this.restartEvent = params.restartEvent;
     this.scorer = params.scorer;
+    this.selector = params.selector;
   }
 
   enter() {
@@ -17,7 +18,9 @@ class RestartPage {
     let button = document.createElement("button");
     button.addEventListener("click", this.restartEvent);
     button.textContent = "Restart";
+    button.className = "restart-button";
     root.appendChild(button);
+    root.appendChild(this.selector.render());
     let chart = new ScoreChart({scorer: this.scorer});
     root.appendChild(chart.render());
     return root;

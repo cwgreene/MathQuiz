@@ -12,14 +12,14 @@ class QuizScorer {
     this.scores.push(this.problems.length);
   }
 
-  recordCorrect(problem, startTime) {
+  recordCorrect(problem, startTime, key) {
     this.correct += 1;
     let solvedTime = new Date();
     let elapsedTime = solvedTime - startTime;
     this.problems.push({problem, startTime, elapsedTime, endTime: solvedTime});
   }
 
-  recordIncorrect(problem, startTime) {
+  recordIncorrect(problem, startTime, key) {
     this.incorrect += 1;
     let errorTime = new Date();
     let elapsed = errorTime - startTime;
