@@ -7,11 +7,15 @@ class PlusTeens extends ProblemGenerator {
     let operand1 = 10 * Math.floor(Math.random() * 9 + 1);
     let operand2 = Math.floor(Math.random() * 10) + 10;
     let solution = null;
-    return new Problem({ operand1, operand2,
-                        operator: "+", solution });
+    let checker = (p) => this.checkSolution(p);
+    return new Problem({ operand1,
+                        operand2,
+                        operator: "+",
+                        solution,
+                       checker});
   }
 
-  checkSolution() {
-    return this.operand1 + this.operand2 === this.solution;
+  checkSolution(p) {
+    return p.operand1 + p.operand2 === p.solution;
   }
 }

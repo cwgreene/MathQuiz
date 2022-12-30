@@ -16,6 +16,6 @@ class Problem {
   }
 
   checkSolution() {
-    return this.checker(this.operand1, this.operand2, this.solution);
+    return this.checker(this);
   }
 }
