@@ -9,15 +9,24 @@ class ScoreChart {
     let root = document.createElement("div");
     root.appendChild(this.canvas);
     console.log(this.scorer.scores)
+    let datasets = [];
+    let maxLength = 0;
+    for(let key in this.scorer.scores) {
+      datasets.push({
+        label: key,
+        data: this.scorer.scores[key]
+      });
+      let length = this.scorer.scores[key].length;
+      maxLength = Math.max(maxLength, length);
+    }
+    console.log(maxLength);
+    let range = [...Array(maxLength).keys()];
+    console.log(range);
     new Chart(this.canvas, {
       type: 'line',
       data: {
-        labels: Object.keys(this.scorer.scores),
-        datasets: [{
-            label: "Score",
-            data: this.scorer.scores
-          }
-        ]
+        labels: range,
+        datasets: datasets
       },
       options: {
         "xAxis": {

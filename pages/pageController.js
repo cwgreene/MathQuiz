@@ -2,8 +2,8 @@ class PageController {
   constructor(targetId) {
     this.targetId = targetId;
 
-    this.scorer = new QuizScorer();
     this.problemSelector = new ProblemSelector();
+    this.scorer = new QuizScorer(this.problemSelector);
 
     let startPage = new StartPage({
       update: (p) => this.renderPage(p.render()),

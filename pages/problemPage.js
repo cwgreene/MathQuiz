@@ -17,7 +17,7 @@ class ProblemPage {
     this.inputHandlerCb = (e) => this.inputHandler(e);
     this.timer = new Timer(45, { width: 600, height: 10 }, this.completeEvent);
     document.addEventListener("keydown", this.inputHandlerCb);
-    this.scorer.start();
+    this.scorer.start(this.generator.name());
 
     this.timer.start();
   }
