@@ -1,1 +1,0 @@
-var pageController = new PageController("current-page");
