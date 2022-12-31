@@ -6,7 +6,7 @@ class RestartPage {
   }
 
   enter() {
-    
+
   }
 
   render() {
@@ -21,12 +21,17 @@ class RestartPage {
     button.className = "restart-button";
     root.appendChild(button);
     root.appendChild(this.selector.render());
-    let chart = new ScoreChart({scorer: this.scorer});
+    let settings = document.createElement("button");
+    settings.addEventListener("click", () => {
+      this.settingsEvent();
+    });
+    root.appendChild(settings);
+    let chart = new ScoreChart({ scorer: this.scorer });
     root.appendChild(chart.render());
     return root;
   }
 
   exit() {
-    
+
   }
 }

@@ -22,8 +22,18 @@ class PageController {
 
     // Wire up pages
     startPage.startEvent = () => this.transition(problemPage);
+    startPage.settingsEvent = () =>
+      this.transition(new SettingsPage({
+        returnAction: () => this.transition(startPage),
+        clearData: () => this.scorer.clear()
+      }));
     problemPage.completeEvent = () => this.transition(restartPage);
     restartPage.restartEvent = () => this.transition(problemPage);
+    restartPage.settingsEvent = () =>
+      this.transition(new SettingsPage({
+        returnAction: () => this.transition(startPage),
+        clearData: () => this.scorer.clear()
+      }));
 
     this.currentPage = startPage;
     this.currentPage.enter();
